@@ -32,7 +32,7 @@
           </v-card-title>
 
           <v-card-text>
-            あなたの点数は{{ CalculationValue }}点です。
+            回答ありがとうございます。
             <br />
             {{ CheckValue }}
           </v-card-text>
@@ -99,7 +99,7 @@
           </v-card-title>
 
           <v-card-text>
-            あなたの点数は{{ CalculationValue }}点です。
+            回答ありがとうございます。
             <br />
             {{ CheckValue }}
           </v-card-text>
@@ -141,7 +141,7 @@ export default {
       "普段よりも動悸がする",
       "身体がだるく、疲れやすい",
       "気持ちはいつもさっぱりしている",
-      "いつもとかわりなく仕事ができる",
+      "いつもとかわりなく勉強ができる",
       "落ち着かず、じっとしていられない",
       "将来に希望がある",
       "いつもよりイライラしている",
@@ -156,10 +156,10 @@ export default {
     CalculationValue: 0,
     label: ["", "まったく", "ときどき", "かなりのあいだ", "ほとんどいつも"],
     CheckValues: [
-      "うつ状態は見られません。",
-      "軽いうつ状態です。気分転換を図りましょう。",
-      "やや重いうつ状態です。一人で考え込まずにだれかに今の気持ちを話しましょう。",
-      "思いうつ状態です。気分が沈んでいて辛いと思いますが、ぜひ学生相談室にご連絡ください。",
+      "39以下　うつ状態は見られません。",
+      "40～47　軽いうつ状態です。気分転換を図りましょう。",
+      "48～55　やや重いうつ状態です。一人で考え込まずにだれかに今の気持ちを話しましょう。",
+      "56以上　重いうつ状態です。気分が沈んでいて辛いと思いますが、ぜひ学生相談室にご連絡ください。",
     ],
     dialog: false,
   }),
@@ -182,7 +182,7 @@ export default {
   computed: {
     CheckValue: function () {
       let number = 0;
-      if (this.CalculationValue < 39) {
+      if (this.CalculationValue <= 39) {
         number = 0;
       } else if (this.CalculationValue >= 40 && this.CalculationValue <= 47) {
         number = 1;
